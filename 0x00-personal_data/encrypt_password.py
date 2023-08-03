@@ -10,7 +10,7 @@ def hash_password(password: str) -> bytes:
     a salted, hashed password which is a byte
     """
     # encodes the string and encrypts it using gensalt method
-    hash = hashpw(password.encode(), gensalt())
+    hash = hashpw(password.encode('utf-8'), gensalt())
     return hash
 
 
@@ -21,4 +21,4 @@ def is_valid(hashed_password: bytes, password: str) -> bool:
         password: string of character
     Return: boolean (true or false)
     """
-    return checkpw(password.encode(), hashed_password)
+    return checkpw(password.encode('utf-8'), hashed_password)
