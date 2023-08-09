@@ -31,7 +31,13 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """pubic method that returns a string"""
-        return None
+        if request is None:
+            return None
+        val = request.headers.get('Authorization')
+        if url is None:
+            return None
+        else:
+            return val
 
     def current_user(self, request=None) -> TypeVar('User'):
         """method that returns a TypeVar"""
