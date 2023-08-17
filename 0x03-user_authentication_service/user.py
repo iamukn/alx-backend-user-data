@@ -5,7 +5,6 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import declarative_base
 
-engine = create_engine("sqlite:///:memory:", echo=False)
 Base = declarative_base()
 
 
@@ -20,6 +19,3 @@ class User(Base):
     hashed_password = Column(String(250), nullable=False)
     session_id = Column(String(250), nullable=True)
     reset_token = Column(String(250), nullable=True)
-
-
-Base.metadata.create_all(engine)
