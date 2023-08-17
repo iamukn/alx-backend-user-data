@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-""" The User Model """
+"""The `user` model's module.
+"""
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.ext.declarative import declarative_base
+
 
 Base = declarative_base()
 
 
 class User(Base):
-    """Class user that creates a table
-    in the database
+    """Represents a record from the `user` table.
     """
-
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
